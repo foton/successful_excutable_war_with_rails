@@ -17,4 +17,12 @@ already tried:
     `bundle exec rake assets:precompile`
     warbling successful, request to `localhost:8080` displays page with "Home#index \n Find me in app/views/home/index.html.erb"!
     YEAAAH!
+5) Adding scaffold for League (SQLite database)
+   `bundle exec rails g scaffold league name:string`
+   Jruby run fully functional, warbling OK , but run from WAR ends with
+   `(ActiveRecord::JDBCError: org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such table: leagues): SELECT "leagues".* FROM "leagues"):|`
+6) Copied `db/development.sqlite` to `db/production.sqlite3`
+   Everything up and running. From WAR run, I can add new league. BUT (surprise, surprise!) it will not hold to next start of WAR (muhehe!).
+
+
 
