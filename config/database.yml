@@ -21,4 +21,4 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: <%= java.lang.System.getProperty('path_to_db') %> # use `java -Dpath_to_db=/path/to/db -jar app.war`

@@ -23,6 +23,15 @@ already tried:
    `(ActiveRecord::JDBCError: org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such table: leagues): SELECT "leagues".* FROM "leagues"):|`
 6) Copied `db/development.sqlite` to `db/production.sqlite3`
    Everything up and running. From WAR run, I can add new league. BUT (surprise, surprise!) it will not hold to next start of WAR (muhehe!).
+7) Linking database file outside war
+   Production DB is linked from env variable `config/database.yml`
+   ```
+     production:
+      <<: *default
+      database: <%= java.lang.System.getProperty('path_to_db') %>
+   ```
+
+   Run of WAR have to be with `java -Dpath_to_db=/path/to/db -jar app.war`
 
 
 
